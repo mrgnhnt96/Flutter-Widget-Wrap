@@ -1,65 +1,28 @@
-# flutter-widget-wrap README
 
-This is the README for your extension "flutter-widget-wrap". After writing up a brief description, we recommend including the following sections.
+### Flutter Widget Wrap
+
+## Introduction
+
+This extension will help you easily wrap any widget with single child, multi-child, or builder function widgets.
+
+![Flutter Widget Wrap Preview](https://user-images.githubusercontent.com/39742020/79374415-2aa4cd00-7f0c-11ea-95e3-9f8bfcbe2012.gif)
+
+## Installation
+
+[Install from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=mrgnhnt96.flutter-widget-wrap) or by [searching within VS Code](https://code.visualstudio.com/docs/editor/extension-gallery#_search-for-an-extension).
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Wrap in a single child widget
+- KeyBinding (Windows & Mac): `alt+s`
+  
+Wrap in a multi-child widget
+- KeyBinding (Windows & Mac): `alt+c`
+  
+wrap in a builder function widget
+- KeyBinding (Windows & Mac): `alt+b`
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+## Reporting Issues
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: enable/disable this extension
-- `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-- Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-- Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Issues should be reported in the [Flutter Widget Wrap issue tracker](https://github.com/amir9480/vscode-flutter-widget-wrap/issues).
