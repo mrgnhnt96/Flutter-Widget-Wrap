@@ -1,8 +1,14 @@
 {
   "name": "flutter-widget-wrap",
   "displayName": "Flutter Widget Wrap",
-  "description": "Wrap your widgets inside of widgets",
-  "version": "0.0.1",
+  "description": "Easily wrap any widget with single child, multi-child, or builder function widgets",
+  "publisher": "mrgnhnt96",
+  "version": "1.0.0",
+  "icon": "images/icon.jpg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrgnhnt96/Flutter-Widget-Wrap"
+  },
   "engines": {
     "vscode": "^1.44.0"
   },
