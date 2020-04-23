@@ -56,6 +56,7 @@ function insertSnippet(
       }
     }
     var replaceText = before + child + after;
+    // TODO: add logic to add ; at the end and replace ';' with a comma
     if (
       child.substr(-1) === "," ||
       (child.substr(-1) === ";" && replaceComma)
