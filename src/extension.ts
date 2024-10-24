@@ -24,92 +24,92 @@ import * as vscode from "vscode";
 // }
 
 // // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
 
 function getSpacer() {
-  const editor = vscode.window.activeTextEditor;
-  if (editor && editor.options.insertSpaces) {
-    return " ".repeat(<number>editor.options.tabSize);
-  }
-  return "\t";
+    const editor = vscode.window.activeTextEditor;
+    if (editor && editor.options.insertSpaces) {
+        return " ".repeat(<number>editor.options.tabSize);
+    }
+    return "\t";
 }
 
 function insertSnippet(
-  before: string,
-  after: string,
-  space: string,
-  replaceComma?: boolean | false
+    before: string,
+    after: string,
+    space: string,
+    replaceComma?: boolean | false
 ) {
-  const editor = vscode.window.activeTextEditor;
-  if (editor && editor.selection.start !== editor.selection.end) {
-    var selection = editor.selection;
-    var child = editor.document.getText(selection).trimLeft();
-    var line = editor.document.lineAt(selection.start);
-    child = child.replace(
-      new RegExp("\n\\s{" + line.firstNonWhitespaceCharacterIndex + "}", "gm"),
-      "\n" + space
-    );
-    if (replaceComma) {
-      if (child.substr(-1) === ",") {
-        child = child.substr(0, child.length - 1);
-        child += ";";
-      }
+    const editor = vscode.window.activeTextEditor;
+    if (editor && editor.selection.start !== editor.selection.end) {
+        var selection = editor.selection;
+        var child = editor.document.getText(selection).trimLeft();
+        var line = editor.document.lineAt(selection.start);
+        child = child.replace(
+            new RegExp("\n\\s{" + line.firstNonWhitespaceCharacterIndex + "}", "gm"),
+            "\n" + space
+        );
+        if (replaceComma) {
+            if (child.substr(-1) === ",") {
+                child = child.substr(0, child.length - 1);
+                child += ";";
+            }
+        }
+        var replaceText = before + child + after;
+        // TODO: add logic to add ; at the end and replace ';' with a comma
+        if (
+            child.substr(-1) === "," ||
+            (child.substr(-1) === ";" && replaceComma)
+        ) {
+            replaceText += ",";
+        }
+        editor.insertSnippet(new vscode.SnippetString(replaceText), selection);
     }
-    var replaceText = before + child + after;
-    // TODO: add logic to add ; at the end and replace ';' with a comma
-    if (
-      child.substr(-1) === "," ||
-      (child.substr(-1) === ";" && replaceComma)
-    ) {
-      replaceText += ",";
-    }
-    editor.insertSnippet(new vscode.SnippetString(replaceText), selection);
-  }
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "flutter-widget-wrap.wrapInSingleChildWidget",
-      () =>
-        insertSnippet(
-          "${1:widget}(\n" + getSpacer() + "child: $2",
-          "\n)",
-          getSpacer()
+    context.subscriptions.push(
+        vscode.commands.registerCommand(
+            "flutter-widget-wrap.wrapInSingleChildWidget",
+            () =>
+                insertSnippet(
+                    "${1:widget}(\n" + getSpacer() + "child: $2",
+                    "\n)",
+                    getSpacer()
+                )
         )
-    )
-  );
+    );
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "flutter-widget-wrap.wrapInBuilderWidget",
-      () =>
-        insertSnippet(
-          "${1:builderWidget}(\n" +
-            getSpacer() +
-            "${2:builder}: (${3:context}, ${4:constructor}) {\n" +
-            getSpacer() +
-            getSpacer() +
-            "return ",
-          "\n},\n" + ")",
-          getSpacer(),
-          true
+    context.subscriptions.push(
+        vscode.commands.registerCommand(
+            "flutter-widget-wrap.wrapInBuilderWidget",
+            () =>
+                insertSnippet(
+                    "${1:Builder}(\n" +
+                    getSpacer() +
+                    "${2:builder}: (${3:context}) {\n" +
+                    getSpacer() +
+                    getSpacer() +
+                    "return ",
+                    "\n},\n" + ")",
+                    getSpacer(),
+                    true
+                )
         )
-    )
-  );
+    );
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      "flutter-widget-wrap.wrapInChildrenWidget",
-      () =>
-        insertSnippet(
-          "${1:widget}(\n" +
-            getSpacer() +
-            "children: [\n" +
-            getSpacer().repeat(2),
-          "$2\n" + getSpacer() + "],\n)",
-          getSpacer().repeat(2)
+    context.subscriptions.push(
+        vscode.commands.registerCommand(
+            "flutter-widget-wrap.wrapInChildrenWidget",
+            () =>
+                insertSnippet(
+                    "${1:widget}(\n" +
+                    getSpacer() +
+                    "children: [\n" +
+                    getSpacer().repeat(2),
+                    "$2\n" + getSpacer() + "],\n)",
+                    getSpacer().repeat(2)
+                )
         )
-    )
-  );
+    );
 }
