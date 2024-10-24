@@ -1,5 +1,4 @@
-
-### Flutter Widget Wrap
+# Flutter Widget Wrap
 
 ## Introduction
 
@@ -14,15 +13,17 @@ This extension will help you easily wrap any widget with single child, multi-chi
 ## Features
 
 Wrap in a single child widget
-- KeyBinding (Windows & Mac): `alt+s`
-  
-Wrap in a multi-child widget
-- KeyBinding (Windows & Mac): `alt+c`
-  
-wrap in a builder function widget
-- KeyBinding (Windows & Mac): `alt+b`
 
+- KeyBinding (Windows & Mac): `alt+s`
+
+Wrap in a multi-child widget
+
+- KeyBinding (Windows & Mac): `alt+c`
+
+wrap in a builder function widget
+
+- KeyBinding (Windows & Mac): `alt+b`
 
 ## Reporting Issues
 
-Issues should be reported in the [Flutter Widget Wrap issue tracker](https://github.com/amir9480/vscode-flutter-widget-wrap/issues).
+Issues should be reported in the [Flutter Widget Wrap issue tracker](https://github.com/mrgnhnt96/vscode-flutter-widget-wrap/issues).
